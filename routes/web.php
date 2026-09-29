@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\StatisticController;
+
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MovieController;
