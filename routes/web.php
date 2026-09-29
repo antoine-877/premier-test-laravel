@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\StatisticController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ParkingRateController;
+use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 
 // ============================================================
@@ -257,3 +259,17 @@ Route::get('films/{id}/seances', [MovieController::class, "showtimes"])
 
 Route::get('/parking/{hours}', [ParkingRateController::class])
     ->whereNumber('hours');
+
+// ============================================================
+// Météo
+// ============================================================
+
+Route::get("/meteo", [WeatherController::class, "index"])
+    ->name("weather.index");
+
+Route::get("/meteo/{city}/releve", [WeatherController::class, "show"])
+    ->name("weather.reading")
+    ->whereIn("city", ['wavre', 'namur', 'liege']);
+
+Route::get("/meteo/aujourdhui", [WeatherController::class, "showToday"])
+    ->name("weather.today");
