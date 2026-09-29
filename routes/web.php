@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\StatisticController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ParkingRateController;
 use App\Http\Controllers\WeatherController;
@@ -273,3 +275,16 @@ Route::get("/meteo/{city}/releve", [WeatherController::class, "show"])
 
 Route::get("/meteo/aujourdhui", [WeatherController::class, "showToday"])
     ->name("weather.today");
+
+
+// ============================================================
+// view
+// ============================================================
+
+Route::view("/acceuil", "home");
+
+Route::get("/entreprise", [CompanyController::class, "index"])
+    ->name("company");
+
+Route::get("/membres", [MemberController::class, "index"])
+    ->name("membre.index");
