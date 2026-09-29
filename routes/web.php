@@ -288,3 +288,5 @@ Route::get("/entreprise", [CompanyController::class, "index"])
 
 Route::get("/membres", [MemberController::class, "index"])
     ->name("membre.index");
+
+Route::view('/services', 'services');
